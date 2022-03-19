@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pass-api
+  namespace: pass-api
+  labels:
+    app: pass-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pass-api
+  template:
+    metadata:
+      labels:
+        app: pass-api
+    spec:
+      containers:
+      - name: pingapp
+        image: nicopaez/password-api
+        ports:
+        - containerPort: 3000

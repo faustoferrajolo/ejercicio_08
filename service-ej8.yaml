@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: pass-api
+  namespace: pass-api
+  labels:
+    app: pass-api
+spec:
+  selector:
+    app: pass-api
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: NodePort
